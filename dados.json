@@ -1,42 +1,12 @@
 {
   "posts": [
     {
-      "id": "mql33xntdfkhbtfzlsf",
-      "linha": "Clipp",
-      "formato": "Reels",
-      "editoria": "Radar comercial",
-      "tema": "TESTE",
-      "data": "2026-07-07",
-      "status": "Briefing",
-      "semBriefing": "2026-06-22"
-    },
-    {
-      "id": "mql2zo81iuihozpnueo",
-      "linha": "Small",
-      "formato": "Carrossel",
-      "editoria": "GTM",
-      "tema": "TESTE",
-      "data": "2026-07-08",
-      "status": "Briefing",
-      "semBriefing": "2026-06-22"
-    },
-    {
-      "id": "mql31usphopeuu5jtg",
+      "id": "mql784ehnwvh41df04",
       "linha": "Clipp",
       "formato": "Reels",
       "editoria": "Pílula de venda",
-      "tema": "teste",
+      "tema": "Tema teste",
       "data": "2026-07-08",
-      "status": "Briefing",
-      "semBriefing": "2026-07-02"
-    },
-    {
-      "id": "mql370rquilkego77am",
-      "linha": "Small",
-      "formato": "Carrossel",
-      "editoria": "GTM",
-      "tema": "teste",
-      "data": "2026-07-10",
       "status": "Briefing",
       "semBriefing": "2026-06-22"
     }
