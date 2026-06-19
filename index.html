@@ -154,6 +154,9 @@ tr:last-child td{border-bottom:none}
       <option value="Small">Small</option>
       <option value="ZWeb">ZWeb</option>
     </select>
+    <label id="showConcluidos" style="display:none;align-items:center;gap:6px;font-size:13px;color:#6b7280;cursor:pointer;user-select:none">
+      <input type="checkbox" id="chkConcluidos" onchange="render()" style="cursor:pointer"> Mostrar concluídos
+    </label>
     <button class="btn-add" onclick="openModal()">+ Novo lançamento</button>
     <div style="position:relative;display:inline-block" id="backupMenu">
       <button class="btn-backup" onclick="toggleBackupMenu()">⬇ Backup ▾</button>
@@ -424,6 +427,7 @@ function switchTab(tab){
   document.getElementById('listView').classList.toggle('hidden',tab!=='list');
   document.getElementById('themesView').classList.toggle('hidden',tab!=='themes');
   document.getElementById('monthNav').style.visibility=tab==='calendar'?'visible':'hidden';
+  document.getElementById('showConcluidos').style.display=tab==='list'?'flex':'none';
   render();
 }
 
@@ -538,7 +542,10 @@ function renderSprint(){
 }
 
 function renderList(){
-  const fp=filtered().sort((a,b)=>a.data.localeCompare(b.data));
+  const mostrarConcluidos = document.getElementById('chkConcluidos').checked;
+  const fp=filtered()
+    .filter(p => mostrarConcluidos || p.status !== 'Concluido / Programado')
+    .sort((a,b)=>a.data.localeCompare(b.data));
   document.getElementById('listBody').innerHTML=fp.length
     ?fp.map(p=>`<tr onclick="openModal('${p.id}')">
         <td>${fmt(p.data)}</td>
@@ -618,6 +625,7 @@ document.getElementById('overlay').addEventListener('click',function(e){
 });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
+switchTab('list');
 loadData();
 </script>
 </body>
