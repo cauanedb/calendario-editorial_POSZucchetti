@@ -28,6 +28,7 @@ header{background:#1e1e2e;color:#fff;padding:12px 24px;display:flex;align-items:
 .btn-add{padding:7px 16px;background:#1e1e2e;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;transition:background .15s}
 .btn-backup{padding:7px 14px;background:none;color:#6b7280;border:1px solid #e5e7eb;border-radius:6px;font-size:13px;cursor:pointer;transition:all .15s}
 .btn-backup:hover{background:#f3f4f6;color:#374151}
+@media print{header,#monthNav,.right-tools,#sprintView,#listView{display:none!important}.view.hidden{display:block!important}#calendarView{display:block!important}body{overflow:visible;height:auto}}
 .btn-add:hover{background:#374151}
 
 /* Views */
@@ -37,9 +38,8 @@ header{background:#1e1e2e;color:#fff;padding:12px 24px;display:flex;align-items:
 /* Calendar */
 .calendar-wrap{padding:16px 24px}
 .cal-title{background:#1e1e2e;color:#fff;text-align:center;padding:10px;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:10px 10px 0 0}
-.cal-legend{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:#e5e7eb;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb}
-.legend-cell{padding:5px 8px;font-size:11px;font-weight:600;text-align:center}
-.legend-empty{background:#f9fafb}
+.cal-legend{display:flex;justify-content:center;gap:8px;padding:6px 12px;background:#f9fafb;border-left:1px solid #e5e7eb;border-right:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb}
+.legend-cell{padding:4px 14px;font-size:12px;font-weight:600;text-align:center;border-radius:20px}
 .calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:#e5e7eb;border:1px solid #e5e7eb;border-radius:0 0 10px 10px;overflow:hidden}
 .day-header{background:#1e1e2e;color:#fff;text-align:center;padding:8px;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
 .day-cell{background:#fff;min-height:110px;padding:6px;cursor:pointer;transition:background .1s;position:relative}
@@ -131,7 +131,13 @@ tr:last-child td{border-bottom:none}
       <option value="ZWeb">ZWeb</option>
     </select>
     <button class="btn-add" onclick="openModal()">+ Novo lançamento</button>
-    <button class="btn-backup" onclick="exportBackup()" title="Baixar backup JSON">⬇ Backup</button>
+    <div style="position:relative;display:inline-block" id="backupMenu">
+      <button class="btn-backup" onclick="toggleBackupMenu()">⬇ Backup ▾</button>
+      <div id="backupDropdown" style="display:none;position:absolute;right:0;top:110%;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:50;min-width:160px;overflow:hidden">
+        <div onclick="exportCSV()" style="padding:10px 16px;font-size:13px;cursor:pointer;color:#374151;border-bottom:1px solid #f3f4f6" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">📊 Excel / CSV</div>
+        <div onclick="exportPDF()" style="padding:10px 16px;font-size:13px;cursor:pointer;color:#374151" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">🖨️ PDF</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -247,14 +253,30 @@ function filtered(){
 }
 
 // ── TAB ───────────────────────────────────────────────────────────────────
-function exportBackup(){
+function toggleBackupMenu(){
+  const d = document.getElementById('backupDropdown');
+  d.style.display = d.style.display==='none' ? 'block' : 'none';
+}
+document.addEventListener('click', e=>{
+  if(!document.getElementById('backupMenu').contains(e.target))
+    document.getElementById('backupDropdown').style.display='none';
+});
+
+function exportCSV(){
+  document.getElementById('backupDropdown').style.display='none';
   const now = new Date();
-  const name = `backup-calendario-${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}.json`;
-  const blob = new Blob([JSON.stringify(posts, null, 2)], {type:'application/json'});
+  const name = `backup-calendario-${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}.csv`;
+  const header = ['Data Publicação','Linha','Formato','Editoria','Tema / Título','Status','Sem. Briefing'];
+  const rows = posts.map(p=>[p.data,p.linha,p.formato,p.editoria||'',`"${p.tema}"`,p.status,p.semBriefing||'']);
+  const csv = [header, ...rows].map(r=>r.join(';')).join('\n');
+  const blob = new Blob(['﻿'+csv], {type:'text/csv;charset=utf-8'});
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = name;
-  a.click();
+  a.href = URL.createObjectURL(blob); a.download = name; a.click();
+}
+
+function exportPDF(){
+  document.getElementById('backupDropdown').style.display='none';
+  window.print();
 }
 
 function switchTab(tab){
@@ -312,12 +334,6 @@ function renderCal(){
     c.textContent=item.label;
     legend.appendChild(c);
   });
-  // 2 empty cells to fill 7 columns
-  for(let i=0;i<2;i++){
-    const c=document.createElement('div');
-    c.className='legend-cell legend-empty';
-    legend.appendChild(c);
-  }
 
   const grid = document.getElementById('calGrid');
   grid.innerHTML = '';
