@@ -149,13 +149,6 @@ tr:last-child td{border-bottom:none}
   <div class="calendar-wrap">
     <div class="cal-title" id="calTitle"></div>
     <div class="cal-legend" id="calLegend"></div>
-    <div class="cal-legend" style="gap:16px;border-top:none">
-      <span style="font-size:12px;color:#6b7280;font-weight:600">Linha:</span>
-      <span style="font-size:12px;font-weight:700;color:#3b82f6;border-left:4px solid #3b82f6;padding-left:6px">Clipp</span>
-      <span style="font-size:12px;font-weight:700;color:#f97316;border-left:4px solid #f97316;padding-left:6px">Gdoor</span>
-      <span style="font-size:12px;font-weight:700;color:#8b5cf6;border-left:4px solid #8b5cf6;padding-left:6px">Small</span>
-      <span style="font-size:12px;font-weight:700;color:#10b981;border-left:4px solid #10b981;padding-left:6px">ZWeb</span>
-    </div>
     <div class="calendar-grid" id="calGrid"></div>
   </div>
 </div>
@@ -381,7 +374,7 @@ function renderCal(){
       const chip = document.createElement('div');
       chip.className=`post-chip ${STATUS_CLS[p.status]||''} ${LINE_CLS[p.linha]||''}`;
       const initial = STATUS_INITIAL[p.status]||'?';
-      chip.textContent=`${p.linha} · ${initial} | ${p.formato} | ${p.editoria||''} — ${p.tema}`;
+      chip.innerHTML=`<strong>${p.linha}</strong> · ${initial} | ${p.formato} | ${p.editoria||''} — ${p.tema}`;
       chip.title=`${p.linha} · ${p.tema}`;
       chip.onclick=(e)=>{e.stopPropagation();openModal(p.id);};
       cell.appendChild(chip);
