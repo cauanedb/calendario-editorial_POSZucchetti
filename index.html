@@ -142,7 +142,8 @@ tr:last-child td{border-bottom:none}
       <button class="btn-backup" onclick="toggleBackupMenu()">⬇ Backup ▾</button>
       <div id="backupDropdown" style="display:none;position:absolute;right:0;top:110%;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:50;min-width:160px;overflow:hidden">
         <div onclick="exportCSV()" style="padding:10px 16px;font-size:13px;cursor:pointer;color:#374151;border-bottom:1px solid #f3f4f6" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">📊 Excel / CSV</div>
-        <div onclick="exportPDF()" style="padding:10px 16px;font-size:13px;cursor:pointer;color:#374151" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">🖨️ PDF</div>
+        <div onclick="exportPDF()" style="padding:10px 16px;font-size:13px;cursor:pointer;color:#374151;border-bottom:1px solid #f3f4f6" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">🖨️ PDF</div>
+        <div onclick="backupToGitHub()" style="padding:10px 16px;font-size:13px;cursor:pointer;color:#374151" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='#fff'">📁 Backup GitHub</div>
       </div>
     </div>
   </div>
@@ -228,6 +229,13 @@ const SB_HDR = {
   'Content-Type': 'application/json'
 };
 
+// ── CONFIG GITHUB (backup) ────────────────────────────────────────────────
+const GH_REPO = 'cauanedb/calendario-editorial_POSZucchetti';
+const GH_FILE = 'dados.json';
+const GH_RAW  = `https://raw.githubusercontent.com/${GH_REPO}/main/${GH_FILE}`;
+const GH_API  = `https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}`;
+let ghToken   = localStorage.getItem('gh_token') || null;
+
 // ── DATA ──────────────────────────────────────────────────────────────────
 let posts = [];
 const _now = new Date();
@@ -261,12 +269,54 @@ function setSaving(v){ document.getElementById('savingIndicator').classList.togg
 
 // ── SUPABASE API ──────────────────────────────────────────────────────────
 async function loadData(){
+  let sbOk = false;
   try {
     const r = await fetch(`${SB_URL}/rest/v1/posts?select=*&order=data`, {headers:SB_HDR});
-    if(r.ok) posts = await r.json();
-    else console.warn('Erro ao carregar:', await r.text());
-  } catch(e){ console.warn('Falha de conexão:', e); }
+    if(r.ok){ posts = await r.json(); sbOk = true; }
+    else console.warn('Supabase erro:', await r.text());
+  } catch(e){ console.warn('Supabase indisponível, tentando fallback GitHub...', e); }
+
+  // Fallback: carrega dados.json do GitHub se Supabase falhar
+  if(!sbOk){
+    try {
+      const r2 = await fetch(GH_RAW + '?t=' + Date.now());
+      if(r2.ok){ const d = await r2.json(); posts = d.posts || []; }
+      console.warn('⚠️ Modo somente leitura — dados carregados do backup GitHub.');
+    } catch(e2){ console.warn('Fallback GitHub também falhou:', e2); }
+  }
   render();
+}
+
+// ── BACKUP GITHUB ─────────────────────────────────────────────────────────
+async function backupToGitHub(){
+  document.getElementById('backupDropdown').style.display='none';
+  if(!ghToken){
+    const t = prompt('Cole seu GitHub Personal Access Token para fazer o backup:');
+    if(!t) return;
+    ghToken = t.trim();
+    localStorage.setItem('gh_token', ghToken);
+  }
+  setSaving(true);
+  try {
+    // Busca SHA atual
+    let sha = null;
+    const shaRes = await fetch(GH_API, {headers:{'Authorization':`token ${ghToken}`,'Accept':'application/vnd.github.v3+json'}});
+    if(shaRes.ok){ const sd = await shaRes.json(); sha = sd.sha; }
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify({posts},null,2))));
+    const body = {message:`Backup automático — ${new Date().toLocaleString('pt-BR')}`, content};
+    if(sha) body.sha = sha;
+    const res = await fetch(GH_API, {
+      method:'PUT',
+      headers:{'Authorization':`token ${ghToken}`,'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},
+      body:JSON.stringify(body)
+    });
+    if(!res.ok){ const err = await res.json(); throw new Error(err.message||'Erro'); }
+    alert(`✅ Backup salvo no GitHub com ${posts.length} lançamentos.`);
+  } catch(e){
+    alert('Erro no backup: ' + e.message);
+    ghToken = null; localStorage.removeItem('gh_token');
+  }
+  setSaving(false);
 }
 
 async function insertPost(p){
