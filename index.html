@@ -106,6 +106,19 @@ tr:last-child td{border-bottom:none}
 .btn-cancel:hover{background:#f3f4f6}
 .btn-save{padding:8px 20px;background:#1e1e2e;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer}
 .btn-save:hover{background:#374151}
+
+/* Auth UI */
+.btn-auth{padding:6px 14px;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500;transition:all .15s;white-space:nowrap}
+.btn-login{background:rgba(255,255,255,.15);color:#fff}
+.btn-login:hover{background:rgba(255,255,255,.25)}
+.btn-logout{background:#dc2626;color:#fff}
+.btn-logout:hover{background:#b91c1c}
+.auth-label{font-size:11px;color:rgba(255,255,255,.45);font-style:italic}
+.saving-indicator{font-size:12px;color:#60a5fa;display:none;font-style:italic}
+.saving-indicator.visible{display:inline}
+.token-modal{background:#fff;border-radius:12px;width:440px;max-width:95vw;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.token-modal p{font-size:13px;color:#6b7280;line-height:1.5;margin:8px 0 18px}
+.token-modal code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:12px}
 </style>
 </head>
 <body>
@@ -117,6 +130,9 @@ tr:last-child td{border-bottom:none}
     <button class="tab-btn" onclick="switchTab('sprint')">Visão Sprint</button>
     <button class="tab-btn" onclick="switchTab('calendar')">Calendário</button>
   </div>
+  <span class="saving-indicator" id="savingIndicator">💾 Salvando…</span>
+  <span class="auth-label" id="authLabel">somente leitura</span>
+  <button class="btn-auth btn-login" id="btnAuth" onclick="toggleAuth()">🔑 Entrar para editar</button>
 </header>
 
 <div class="toolbar">
@@ -134,7 +150,7 @@ tr:last-child td{border-bottom:none}
       <option value="Small">Small</option>
       <option value="ZWeb">ZWeb</option>
     </select>
-    <button class="btn-add" onclick="openModal()">+ Novo lançamento</button>
+    <button class="btn-add edit-only hidden" onclick="openModal()">+ Novo lançamento</button>
     <div style="position:relative;display:inline-block" id="backupMenu">
       <button class="btn-backup" onclick="toggleBackupMenu()">⬇ Backup ▾</button>
       <div id="backupDropdown" style="display:none;position:absolute;right:0;top:110%;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:50;min-width:160px;overflow:hidden">
@@ -215,10 +231,31 @@ tr:last-child td{border-bottom:none}
   </div>
 </div>
 
+<div class="overlay" id="tokenOverlay">
+  <div class="token-modal">
+    <div style="font-size:16px;font-weight:700;margin-bottom:4px">🔑 Entrar como editor</div>
+    <p>Cole seu <strong>GitHub Personal Access Token</strong> para habilitar edição. O token precisa ter permissão <code>contents: write</code> no repositório <code>cauanedb/calendario-editorial_POSZucchetti</code>.</p>
+    <input class="fi" type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" style="margin-bottom:14px">
+    <div style="display:flex;gap:8px;justify-content:flex-end">
+      <button class="btn-cancel" onclick="closeTokenModal()">Cancelar</button>
+      <button class="btn-save" onclick="confirmToken()">Confirmar</button>
+    </div>
+  </div>
+</div>
+
 <script>
+// ── CONFIG ────────────────────────────────────────────────────────────────
+const REPO = 'cauanedb/calendario-editorial_POSZucchetti';
+const DADOS_FILE = 'dados.json';
+const RAW_URL = `https://raw.githubusercontent.com/${REPO}/main/${DADOS_FILE}`;
+const API_URL = `https://api.github.com/repos/${REPO}/contents/${DADOS_FILE}`;
+
 // ── DATA ──────────────────────────────────────────────────────────────────
-let posts = JSON.parse(localStorage.getItem('zuc_posts') || 'null');
-let curYear = 2026, curMonth = 6, curTab = 'list', editId = null;
+let posts = [];
+let fileSHA = null;
+let ghToken = localStorage.getItem('gh_token') || null;
+const now = new Date();
+let curYear = now.getFullYear(), curMonth = now.getMonth(), curTab = 'list', editId = null;
 
 const STATUS_CLS = {
   'Briefing':'s-briefing','Gravar':'s-gravar',
@@ -236,20 +273,104 @@ const MONTHS = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
                 'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 
 function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2); }
-function save(){ localStorage.setItem('zuc_posts', JSON.stringify(posts)); }
 function fmt(s){ if(!s) return '—'; const[y,m,d]=s.split('-'); return `${d}/${m}/${y}`; }
+function setSaving(v){ document.getElementById('savingIndicator').classList.toggle('visible', v); }
 
-if (!posts) {
-  posts = [
-    {id:uid(),linha:'Clipp',formato:'Reels',tema:'Como o Clipp facilita o controle do caixa',data:'2026-07-07',status:'Briefing',semBriefing:'2026-06-23'},
-    {id:uid(),linha:'Gdoor',formato:'Carrossel',tema:'PDV: 3 erros que custam vendas ao revendedor',data:'2026-07-14',status:'Gravar',semBriefing:'2026-06-30'},
-    {id:uid(),linha:'Small',formato:'Reels',tema:'O sistema que cresce com o negócio do cliente',data:'2026-07-21',status:'Briefing',semBriefing:'2026-06-30'},
-    {id:uid(),linha:'ZWeb',formato:'Estático',tema:'Presença digital para o comércio local',data:'2026-07-15',status:'A programar',semBriefing:'2026-07-07'},
-    {id:uid(),linha:'Clipp',formato:'Carrossel',tema:'Integração com marketplaces: passo a passo',data:'2026-07-22',status:'Em pauta',semBriefing:'2026-07-07'},
-    {id:uid(),linha:'Gdoor',formato:'Reels',tema:'Fechamento de caixa sem erro',data:'2026-07-28',status:'Concluido / Programado',semBriefing:'2026-07-14'},
-  ];
-  save();
+// ── LOAD FROM GITHUB ──────────────────────────────────────────────────────
+async function loadData(){
+  try {
+    const r = await fetch(RAW_URL + '?t=' + Date.now());
+    if(r.ok){ const d = await r.json(); posts = d.posts || []; }
+  } catch(e){ console.warn('Erro ao carregar dados:', e); }
+  updateAuthUI();
+  render();
 }
+
+// ── SAVE TO GITHUB ────────────────────────────────────────────────────────
+async function save(){
+  if(!ghToken){
+    alert('Você precisa entrar com seu token para salvar alterações.');
+    return false;
+  }
+  setSaving(true);
+  try {
+    // Always fetch current SHA before writing to avoid conflicts
+    const shaRes = await fetch(API_URL, {
+      headers:{'Authorization':`token ${ghToken}`,'Accept':'application/vnd.github.v3+json'}
+    });
+    if(shaRes.ok){ const sd = await shaRes.json(); fileSHA = sd.sha; }
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify({posts},null,2))));
+    const body = {
+      message:`Calendário atualizado — ${new Date().toLocaleString('pt-BR')}`,
+      content
+    };
+    if(fileSHA) body.sha = fileSHA;
+    const res = await fetch(API_URL, {
+      method:'PUT',
+      headers:{'Authorization':`token ${ghToken}`,'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},
+      body:JSON.stringify(body)
+    });
+    if(!res.ok){ const err = await res.json(); throw new Error(err.message||'Erro desconhecido'); }
+    const saved = await res.json();
+    if(saved.content) fileSHA = saved.content.sha;
+  } catch(e){
+    alert('Erro ao salvar no GitHub: ' + e.message);
+    setSaving(false);
+    return false;
+  }
+  setSaving(false);
+  return true;
+}
+
+// ── AUTH ──────────────────────────────────────────────────────────────────
+function updateAuthUI(){
+  const loggedIn = !!ghToken;
+  const btn = document.getElementById('btnAuth');
+  const lbl = document.getElementById('authLabel');
+  document.querySelectorAll('.edit-only').forEach(el=>el.classList.toggle('hidden',!loggedIn));
+  if(loggedIn){
+    btn.textContent='🔓 Sair da edição';
+    btn.className='btn-auth btn-logout';
+    lbl.textContent='modo editor';
+  } else {
+    btn.textContent='🔑 Entrar para editar';
+    btn.className='btn-auth btn-login';
+    lbl.textContent='somente leitura';
+  }
+}
+
+function toggleAuth(){
+  if(ghToken){
+    if(confirm('Sair do modo de edição?')){
+      ghToken=null; localStorage.removeItem('gh_token'); updateAuthUI();
+    }
+  } else { openTokenModal(); }
+}
+
+function openTokenModal(){
+  document.getElementById('tokenInput').value='';
+  document.getElementById('tokenOverlay').classList.add('open');
+  setTimeout(()=>document.getElementById('tokenInput').focus(),50);
+}
+function closeTokenModal(){ document.getElementById('tokenOverlay').classList.remove('open'); }
+
+async function confirmToken(){
+  const t = document.getElementById('tokenInput').value.trim();
+  if(!t){ alert('Cole um token válido.'); return; }
+  const btn = document.querySelector('#tokenOverlay .btn-save');
+  btn.textContent='Verificando…'; btn.disabled=true;
+  try {
+    const res = await fetch(API_URL, {headers:{'Authorization':`token ${t}`,'Accept':'application/vnd.github.v3+json'}});
+    if(!res.ok) throw new Error('Token inválido ou sem permissão no repositório.');
+    ghToken=t; localStorage.setItem('gh_token',t);
+    closeTokenModal(); updateAuthUI();
+  } catch(e){ alert(e.message); }
+  btn.textContent='Confirmar'; btn.disabled=false;
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter' && document.getElementById('tokenOverlay').classList.contains('open')) confirmToken();
+});
 
 function filtered(){
   const l = document.getElementById('filterLine').value;
@@ -423,6 +544,7 @@ function renderList(){
 
 // ── MODAL ─────────────────────────────────────────────────────────────────
 function openModal(id=null, preDate=null){
+  if(!ghToken){ return; } // somente leitura — não abre modal
   editId = id;
   const btnDel = document.getElementById('btnDel');
   if(id){
@@ -456,7 +578,7 @@ function closeModal(){
   editId=null;
 }
 
-function savePost(){
+async function savePost(){
   const tema = document.getElementById('fTema').value.trim();
   const data = document.getElementById('fData').value;
   if(!tema||!data){ alert('Preencha o tema e a data de publicação.'); return; }
@@ -470,22 +592,27 @@ function savePost(){
   };
   if(editId){ const i=posts.findIndex(x=>x.id===editId); posts[i]={...posts[i],...p}; }
   else posts.push({id:uid(),...p});
-  save(); closeModal(); render();
+  closeModal(); render();
+  await save();
 }
 
-function deletePost(){
+async function deletePost(){
   if(!confirm('Excluir este lançamento?')) return;
   posts=posts.filter(p=>p.id!==editId);
-  save(); closeModal(); render();
+  closeModal(); render();
+  await save();
 }
 
 document.getElementById('overlay').addEventListener('click',function(e){
   if(e.target===this) closeModal();
 });
+document.getElementById('tokenOverlay').addEventListener('click',function(e){
+  if(e.target===this) closeTokenModal();
+});
 
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeModal(); closeTokenModal(); } });
 
-render();
+loadData();
 </script>
 </body>
 </html>

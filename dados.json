@@ -1,0 +1,10 @@
+{
+  "posts": [
+    {"id":"sample1","linha":"Clipp","formato":"Reels","editoria":"Radar comercial","tema":"Como o Clipp facilita o controle do caixa","data":"2026-07-07","status":"Briefing","semBriefing":"2026-06-23"},
+    {"id":"sample2","linha":"Gdoor","formato":"Carrossel","editoria":"Pílula de venda","tema":"PDV: 3 erros que custam vendas ao revendedor","data":"2026-07-14","status":"Gravar","semBriefing":"2026-06-30"},
+    {"id":"sample3","linha":"Small","formato":"Reels","editoria":"Solução na prática","tema":"O sistema que cresce com o negócio do cliente","data":"2026-07-21","status":"Briefing","semBriefing":"2026-06-30"},
+    {"id":"sample4","linha":"ZWeb","formato":"Estático","editoria":"GTM","tema":"Presença digital para o comércio local","data":"2026-07-15","status":"A programar","semBriefing":"2026-07-07"},
+    {"id":"sample5","linha":"Clipp","formato":"Carrossel","editoria":"Educativo","tema":"Integração com marketplaces: passo a passo","data":"2026-07-22","status":"Em pauta","semBriefing":"2026-07-07"},
+    {"id":"sample6","linha":"Gdoor","formato":"Reels","editoria":"Radar comercial","tema":"Fechamento de caixa sem erro","data":"2026-07-28","status":"Concluido / Programado","semBriefing":"2026-07-14"}
+  ]
+}
