@@ -15,6 +15,8 @@ header{background:#1e1e2e;color:#fff;padding:12px 24px;display:flex;align-items:
 .tabs{display:flex;gap:4px;margin-left:auto}
 .tab-btn{padding:6px 16px;border:none;border-radius:6px;cursor:pointer;font-size:14px;font-weight:500;background:transparent;color:rgba(255,255,255,.6);transition:all .15s}
 .tab-btn.active,.tab-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+.saving-indicator{font-size:12px;color:#60a5fa;display:none;font-style:italic;margin-left:8px}
+.saving-indicator.visible{display:inline}
 
 /* Toolbar */
 .toolbar{background:#fff;border-bottom:1px solid #e5e7eb;padding:10px 24px;display:flex;align-items:center;gap:12px;flex-shrink:0}
@@ -26,10 +28,10 @@ header{background:#1e1e2e;color:#fff;padding:12px 24px;display:flex;align-items:
 .filter-label{font-size:14px;color:#6b7280}
 .filter-select{padding:6px 10px;border:1px solid #e5e7eb;border-radius:6px;font-size:14px;background:#fff;cursor:pointer;font-family:inherit}
 .btn-add{padding:7px 16px;background:#1e1e2e;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;transition:background .15s}
+.btn-add:hover{background:#374151}
 .btn-backup{padding:7px 14px;background:none;color:#6b7280;border:1px solid #e5e7eb;border-radius:6px;font-size:13px;cursor:pointer;transition:all .15s}
 .btn-backup:hover{background:#f3f4f6;color:#374151}
 @media print{header,#monthNav,.right-tools,#sprintView,#listView{display:none!important}.view.hidden{display:block!important}#calendarView{display:block!important}body{overflow:visible;height:auto}}
-.btn-add:hover{background:#374151}
 
 /* Views */
 .view{flex:1;overflow:auto}
@@ -106,19 +108,6 @@ tr:last-child td{border-bottom:none}
 .btn-cancel:hover{background:#f3f4f6}
 .btn-save{padding:8px 20px;background:#1e1e2e;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer}
 .btn-save:hover{background:#374151}
-
-/* Auth UI */
-.btn-auth{padding:6px 14px;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:500;transition:all .15s;white-space:nowrap}
-.btn-login{background:rgba(255,255,255,.15);color:#fff}
-.btn-login:hover{background:rgba(255,255,255,.25)}
-.btn-logout{background:#dc2626;color:#fff}
-.btn-logout:hover{background:#b91c1c}
-.auth-label{font-size:11px;color:rgba(255,255,255,.45);font-style:italic}
-.saving-indicator{font-size:12px;color:#60a5fa;display:none;font-style:italic}
-.saving-indicator.visible{display:inline}
-.token-modal{background:#fff;border-radius:12px;width:440px;max-width:95vw;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.2)}
-.token-modal p{font-size:13px;color:#6b7280;line-height:1.5;margin:8px 0 18px}
-.token-modal code{background:#f3f4f6;padding:1px 5px;border-radius:4px;font-size:12px}
 </style>
 </head>
 <body>
@@ -131,8 +120,6 @@ tr:last-child td{border-bottom:none}
     <button class="tab-btn" onclick="switchTab('calendar')">Calendário</button>
   </div>
   <span class="saving-indicator" id="savingIndicator">💾 Salvando…</span>
-  <span class="auth-label" id="authLabel">somente leitura</span>
-  <button class="btn-auth btn-login" id="btnAuth" onclick="toggleAuth()">🔑 Entrar para editar</button>
 </header>
 
 <div class="toolbar">
@@ -150,7 +137,7 @@ tr:last-child td{border-bottom:none}
       <option value="Small">Small</option>
       <option value="ZWeb">ZWeb</option>
     </select>
-    <button class="btn-add edit-only hidden" onclick="openModal()">+ Novo lançamento</button>
+    <button class="btn-add" onclick="openModal()">+ Novo lançamento</button>
     <div style="position:relative;display:inline-block" id="backupMenu">
       <button class="btn-backup" onclick="toggleBackupMenu()">⬇ Backup ▾</button>
       <div id="backupDropdown" style="display:none;position:absolute;right:0;top:110%;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.1);z-index:50;min-width:160px;overflow:hidden">
@@ -231,31 +218,20 @@ tr:last-child td{border-bottom:none}
   </div>
 </div>
 
-<div class="overlay" id="tokenOverlay">
-  <div class="token-modal">
-    <div style="font-size:16px;font-weight:700;margin-bottom:4px">🔑 Entrar como editor</div>
-    <p>Cole seu <strong>GitHub Personal Access Token</strong> para habilitar edição. O token precisa ter permissão <code>contents: write</code> no repositório <code>cauanedb/calendario-editorial_POSZucchetti</code>.</p>
-    <input class="fi" type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" style="margin-bottom:14px" autocomplete="new-password">
-    <div style="display:flex;gap:8px;justify-content:flex-end">
-      <button class="btn-cancel" onclick="closeTokenModal()">Cancelar</button>
-      <button class="btn-save" onclick="confirmToken()">Confirmar</button>
-    </div>
-  </div>
-</div>
-
 <script>
-// ── CONFIG ────────────────────────────────────────────────────────────────
-const REPO = 'cauanedb/calendario-editorial_POSZucchetti';
-const DADOS_FILE = 'dados.json';
-const RAW_URL = `https://raw.githubusercontent.com/${REPO}/main/${DADOS_FILE}`;
-const API_URL = `https://api.github.com/repos/${REPO}/contents/${DADOS_FILE}`;
+// ── CONFIG SUPABASE ───────────────────────────────────────────────────────
+const SB_URL = 'https://qveztulqkzvthupibenc.supabase.co';
+const SB_KEY = 'sb_publishable_DZ-pLsOTkBVwinU3U_VYUA_rLbrClcW';
+const SB_HDR = {
+  'apikey': SB_KEY,
+  'Authorization': `Bearer ${SB_KEY}`,
+  'Content-Type': 'application/json'
+};
 
 // ── DATA ──────────────────────────────────────────────────────────────────
 let posts = [];
-let fileSHA = null;
-let ghToken = localStorage.getItem('gh_token') || null;
-const now = new Date();
-let curYear = now.getFullYear(), curMonth = now.getMonth(), curTab = 'list', editId = null;
+const _now = new Date();
+let curYear = _now.getFullYear(), curMonth = _now.getMonth(), curTab = 'list', editId = null;
 
 const STATUS_CLS = {
   'Briefing':'s-briefing','Gravar':'s-gravar',
@@ -271,113 +247,72 @@ const STATUS_STYLE = {
 };
 const MONTHS = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho',
                 'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const STATUS_INITIAL = {
+  'Briefing':'B','Gravar':'G','Concluido / Programado':'C',
+  'A programar':'A','Em pauta':'E'
+};
+const LINE_CLS = {
+  'Clipp':'line-clipp','Gdoor':'line-gdoor','Small':'line-small','ZWeb':'line-zweb'
+};
 
 function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2); }
 function fmt(s){ if(!s) return '—'; const[y,m,d]=s.split('-'); return `${d}/${m}/${y}`; }
-function setSaving(v){ document.getElementById('savingIndicator').classList.toggle('visible', v); }
+function setSaving(v){ document.getElementById('savingIndicator').classList.toggle('visible',v); }
 
-// ── LOAD FROM GITHUB ──────────────────────────────────────────────────────
+// ── SUPABASE API ──────────────────────────────────────────────────────────
 async function loadData(){
   try {
-    const r = await fetch(RAW_URL + '?t=' + Date.now());
-    if(r.ok){ const d = await r.json(); posts = d.posts || []; }
-  } catch(e){ console.warn('Erro ao carregar dados:', e); }
-  updateAuthUI();
+    const r = await fetch(`${SB_URL}/rest/v1/posts?select=*&order=data`, {headers:SB_HDR});
+    if(r.ok) posts = await r.json();
+    else console.warn('Erro ao carregar:', await r.text());
+  } catch(e){ console.warn('Falha de conexão:', e); }
   render();
 }
 
-// ── SAVE TO GITHUB ────────────────────────────────────────────────────────
-async function save(){
-  if(!ghToken){
-    alert('Você precisa entrar com seu token para salvar alterações.');
-    return false;
-  }
+async function insertPost(p){
   setSaving(true);
   try {
-    // Always fetch current SHA before writing to avoid conflicts
-    const shaRes = await fetch(API_URL, {
-      headers:{'Authorization':`token ${ghToken}`,'Accept':'application/vnd.github.v3+json'}
+    const r = await fetch(`${SB_URL}/rest/v1/posts`, {
+      method:'POST',
+      headers:{...SB_HDR,'Prefer':'return=representation'},
+      body:JSON.stringify(p)
     });
-    if(shaRes.ok){ const sd = await shaRes.json(); fileSHA = sd.sha; }
-    const content = btoa(unescape(encodeURIComponent(JSON.stringify({posts},null,2))));
-    const body = {
-      message:`Calendário atualizado — ${new Date().toLocaleString('pt-BR')}`,
-      content
-    };
-    if(fileSHA) body.sha = fileSHA;
-    const res = await fetch(API_URL, {
-      method:'PUT',
-      headers:{'Authorization':`token ${ghToken}`,'Content-Type':'application/json','Accept':'application/vnd.github.v3+json'},
-      body:JSON.stringify(body)
-    });
-    if(!res.ok){ const err = await res.json(); throw new Error(err.message||'Erro desconhecido'); }
-    const saved = await res.json();
-    if(saved.content) fileSHA = saved.content.sha;
-  } catch(e){
-    alert('Erro ao salvar no GitHub: ' + e.message);
-    setSaving(false);
-    return false;
-  }
+    if(!r.ok) throw new Error((await r.json()).message || 'Erro ao inserir');
+    const rows = await r.json();
+    posts.push(rows[0]);
+  } catch(e){ alert('Erro ao salvar: '+e.message); }
   setSaving(false);
-  return true;
 }
 
-// ── AUTH ──────────────────────────────────────────────────────────────────
-function updateAuthUI(){
-  const loggedIn = !!ghToken;
-  const btn = document.getElementById('btnAuth');
-  const lbl = document.getElementById('authLabel');
-  document.querySelectorAll('.edit-only').forEach(el=>el.classList.toggle('hidden',!loggedIn));
-  if(loggedIn){
-    btn.textContent='🔓 Sair da edição';
-    btn.className='btn-auth btn-logout';
-    lbl.textContent='modo editor';
-  } else {
-    btn.textContent='🔑 Entrar para editar';
-    btn.className='btn-auth btn-login';
-    lbl.textContent='somente leitura';
-  }
-}
-
-function toggleAuth(){
-  if(ghToken){
-    if(confirm('Sair do modo de edição?')){
-      ghToken=null; localStorage.removeItem('gh_token'); updateAuthUI();
-    }
-  } else { openTokenModal(); }
-}
-
-function openTokenModal(){
-  document.getElementById('tokenInput').value='';
-  document.getElementById('tokenOverlay').classList.add('open');
-  setTimeout(()=>document.getElementById('tokenInput').focus(),50);
-}
-function closeTokenModal(){ document.getElementById('tokenOverlay').classList.remove('open'); }
-
-async function confirmToken(){
-  const t = document.getElementById('tokenInput').value.trim();
-  if(!t){ alert('Cole um token válido.'); return; }
-  const btn = document.querySelector('#tokenOverlay .btn-save');
-  btn.textContent='Verificando…'; btn.disabled=true;
+async function updatePost(id, p){
+  setSaving(true);
   try {
-    const res = await fetch(API_URL, {headers:{'Authorization':`token ${t}`,'Accept':'application/vnd.github.v3+json'}});
-    if(!res.ok) throw new Error('Token inválido ou sem permissão no repositório.');
-    ghToken=t; localStorage.setItem('gh_token',t);
-    closeTokenModal(); updateAuthUI();
-  } catch(e){ alert(e.message); }
-  btn.textContent='Confirmar'; btn.disabled=false;
+    const r = await fetch(`${SB_URL}/rest/v1/posts?id=eq.${encodeURIComponent(id)}`, {
+      method:'PATCH',
+      headers:{...SB_HDR,'Prefer':'return=representation'},
+      body:JSON.stringify(p)
+    });
+    if(!r.ok) throw new Error((await r.json()).message || 'Erro ao atualizar');
+    const rows = await r.json();
+    const i = posts.findIndex(x=>x.id===id);
+    if(i>=0) posts[i]=rows[0];
+  } catch(e){ alert('Erro ao atualizar: '+e.message); }
+  setSaving(false);
 }
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='Enter' && document.getElementById('tokenOverlay').classList.contains('open')) confirmToken();
-});
-
-function filtered(){
-  const l = document.getElementById('filterLine').value;
-  return l === 'Todas' ? posts : posts.filter(p => p.linha === l);
+async function removePost(id){
+  setSaving(true);
+  try {
+    const r = await fetch(`${SB_URL}/rest/v1/posts?id=eq.${encodeURIComponent(id)}`, {
+      method:'DELETE', headers:SB_HDR
+    });
+    if(!r.ok) throw new Error('Erro ao excluir');
+    posts = posts.filter(p=>p.id!==id);
+  } catch(e){ alert('Erro ao excluir: '+e.message); }
+  setSaving(false);
 }
 
-// ── TAB ───────────────────────────────────────────────────────────────────
+// ── BACKUP ────────────────────────────────────────────────────────────────
 function toggleBackupMenu(){
   const d = document.getElementById('backupDropdown');
   d.style.display = d.style.display==='none' ? 'block' : 'none';
@@ -389,14 +324,14 @@ document.addEventListener('click', e=>{
 
 function exportCSV(){
   document.getElementById('backupDropdown').style.display='none';
-  const now = new Date();
-  const name = `backup-calendario-${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}.csv`;
+  const n = new Date();
+  const name = `backup-calendario-${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}.csv`;
   const header = ['Data Publicação','Linha','Formato','Editoria','Tema / Título','Status','Sem. Briefing'];
   const rows = posts.map(p=>[p.data,p.linha,p.formato,p.editoria||'',`"${p.tema}"`,p.status,p.semBriefing||'']);
-  const csv = [header, ...rows].map(r=>r.join(';')).join('\n');
-  const blob = new Blob(['﻿'+csv], {type:'text/csv;charset=utf-8'});
+  const csv = [header,...rows].map(r=>r.join(';')).join('\n');
+  const blob = new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob); a.download = name; a.click();
+  a.href=URL.createObjectURL(blob); a.download=name; a.click();
 }
 
 function exportPDF(){
@@ -404,24 +339,29 @@ function exportPDF(){
   window.print();
 }
 
+// ── TABS ──────────────────────────────────────────────────────────────────
 function switchTab(tab){
-  curTab = tab;
+  curTab=tab;
   document.querySelectorAll('.tab-btn').forEach((b,i)=>{
     b.classList.toggle('active',['list','sprint','calendar'][i]===tab);
   });
-  document.getElementById('calendarView').classList.toggle('hidden', tab!=='calendar');
-  document.getElementById('sprintView').classList.toggle('hidden', tab!=='sprint');
-  document.getElementById('listView').classList.toggle('hidden', tab!=='list');
-  document.getElementById('monthNav').style.visibility = tab==='calendar' ? 'visible' : 'hidden';
+  document.getElementById('calendarView').classList.toggle('hidden',tab!=='calendar');
+  document.getElementById('sprintView').classList.toggle('hidden',tab!=='sprint');
+  document.getElementById('listView').classList.toggle('hidden',tab!=='list');
+  document.getElementById('monthNav').style.visibility=tab==='calendar'?'visible':'hidden';
   render();
 }
 
-// ── MONTH NAV ─────────────────────────────────────────────────────────────
 function changeMonth(d){
-  curMonth += d;
+  curMonth+=d;
   if(curMonth>11){curMonth=0;curYear++;}
   if(curMonth<0){curMonth=11;curYear--;}
   render();
+}
+
+function filtered(){
+  const l=document.getElementById('filterLine').value;
+  return l==='Todas'?posts:posts.filter(p=>p.linha===l);
 }
 
 // ── RENDER ────────────────────────────────────────────────────────────────
@@ -431,93 +371,65 @@ function render(){
   else renderList();
 }
 
-// ── STATUS INITIAL ────────────────────────────────────────────────────────
-const STATUS_INITIAL = {
-  'Briefing':'B','Gravar':'G','Concluido / Programado':'C',
-  'A programar':'A','Em pauta':'E'
-};
-const LINE_CLS = {
-  'Clipp':'line-clipp','Gdoor':'line-gdoor','Small':'line-small','ZWeb':'line-zweb'
-};
-
-// ── CALENDAR ──────────────────────────────────────────────────────────────
 function renderCal(){
-  const label = `${MONTHS[curMonth].toUpperCase()}  ${curYear}`;
-  document.getElementById('monthLabel').textContent = `${MONTHS[curMonth]}  ${curYear}`;
-  document.getElementById('calTitle').textContent = label;
+  const label=`${MONTHS[curMonth].toUpperCase()}  ${curYear}`;
+  document.getElementById('monthLabel').textContent=`${MONTHS[curMonth]}  ${curYear}`;
+  document.getElementById('calTitle').textContent=label;
 
-  // Legend
-  const legend = document.getElementById('calLegend');
-  legend.innerHTML = '';
-  const legendItems = [
-    {label:'B | Briefing', cls:'s-briefing'},
-    {label:'G | Gravar', cls:'s-gravar'},
-    {label:'C | Concluído', cls:'s-concluido'},
-    {label:'A | A programar', cls:'s-aprogramar'},
-    {label:'E | Em pauta', cls:'s-empauta'},
-  ];
-  legendItems.forEach(item=>{
-    const c = document.createElement('div');
-    c.className=`legend-cell ${item.cls}`;
-    c.textContent=item.label;
-    legend.appendChild(c);
+  const legend=document.getElementById('calLegend');
+  legend.innerHTML='';
+  [{label:'B | Briefing',cls:'s-briefing'},{label:'G | Gravar',cls:'s-gravar'},
+   {label:'C | Concluído',cls:'s-concluido'},{label:'A | A programar',cls:'s-aprogramar'},
+   {label:'E | Em pauta',cls:'s-empauta'}].forEach(item=>{
+    const c=document.createElement('div');
+    c.className=`legend-cell ${item.cls}`; c.textContent=item.label; legend.appendChild(c);
   });
 
-  const grid = document.getElementById('calGrid');
-  grid.innerHTML = '';
-
+  const grid=document.getElementById('calGrid');
+  grid.innerHTML='';
   ['SEGUNDA','TERÇA','QUARTA','QUINTA','SEXTA','SÁBADO','DOMINGO'].forEach(d=>{
-    const h = document.createElement('div');
-    h.className='day-header'; h.textContent=d; grid.appendChild(h);
+    const h=document.createElement('div'); h.className='day-header'; h.textContent=d; grid.appendChild(h);
   });
 
-  const firstDow = (new Date(curYear,curMonth,1).getDay()+6)%7;
-  const daysInMonth = new Date(curYear,curMonth+1,0).getDate();
-  const totalCells = Math.ceil((firstDow+daysInMonth)/7)*7;
-  const today = new Date().toISOString().slice(0,10);
-  const fp = filtered();
+  const firstDow=(new Date(curYear,curMonth,1).getDay()+6)%7;
+  const daysInMonth=new Date(curYear,curMonth+1,0).getDate();
+  const totalCells=Math.ceil((firstDow+daysInMonth)/7)*7;
+  const today=new Date().toISOString().slice(0,10);
+  const fp=filtered();
 
   for(let i=0;i<totalCells;i++){
-    const offset = i - firstDow;
-    const date = new Date(curYear, curMonth, 1+offset);
-    const inMonth = date.getMonth()===curMonth;
-    const ds = date.toISOString().slice(0,10);
-
-    const cell = document.createElement('div');
-    cell.className = 'day-cell'+(inMonth?'':' other-month');
+    const offset=i-firstDow;
+    const date=new Date(curYear,curMonth,1+offset);
+    const inMonth=date.getMonth()===curMonth;
+    const ds=date.toISOString().slice(0,10);
+    const cell=document.createElement('div');
+    cell.className='day-cell'+(inMonth?'':' other-month');
     if(ds===today) cell.classList.add('today');
-
-    const num = document.createElement('div');
-    num.className='day-num'; num.textContent=date.getDate();
-    cell.appendChild(num);
-
+    const num=document.createElement('div');
+    num.className='day-num'; num.textContent=date.getDate(); cell.appendChild(num);
     fp.filter(p=>p.data===ds).forEach(p=>{
-      const chip = document.createElement('div');
+      const chip=document.createElement('div');
       chip.className=`post-chip ${STATUS_CLS[p.status]||''} ${LINE_CLS[p.linha]||''}`;
-      const initial = STATUS_INITIAL[p.status]||'?';
+      const initial=STATUS_INITIAL[p.status]||'?';
       chip.innerHTML=`<strong>${p.linha}</strong> · ${initial} | ${p.formato} | ${p.editoria||''} — ${p.tema}`;
       chip.title=`${p.linha} · ${p.tema}`;
       chip.onclick=(e)=>{e.stopPropagation();openModal(p.id);};
       cell.appendChild(chip);
     });
-
     if(inMonth) cell.onclick=()=>openModal(null,ds);
     grid.appendChild(cell);
   }
 }
 
-// ── SPRINT ────────────────────────────────────────────────────────────────
 function renderSprint(){
-  const fp = filtered();
-  const groups = [
-    [fp.filter(p=>['Briefing','A programar'].includes(p.status)),'sp1'],
-    [fp.filter(p=>['Gravar','Em pauta'].includes(p.status)),'sp2'],
-    [fp.filter(p=>p.status==='Concluido / Programado'),'sp3'],
-  ];
-  groups.forEach(([items,id])=>{
-    const el = document.getElementById(id);
-    if(!items.length){ el.innerHTML='<div class="sprint-empty">Sem posts nessa fase</div>'; return; }
-    el.innerHTML = items.sort((a,b)=>a.data.localeCompare(b.data)).map(p=>`
+  const fp=filtered();
+  [[fp.filter(p=>['Briefing','A programar'].includes(p.status)),'sp1'],
+   [fp.filter(p=>['Gravar','Em pauta'].includes(p.status)),'sp2'],
+   [fp.filter(p=>p.status==='Concluido / Programado'),'sp3']
+  ].forEach(([items,id])=>{
+    const el=document.getElementById(id);
+    if(!items.length){el.innerHTML='<div class="sprint-empty">Sem posts nessa fase</div>';return;}
+    el.innerHTML=items.sort((a,b)=>a.data.localeCompare(b.data)).map(p=>`
       <div class="sprint-item" onclick="openModal('${p.id}')">
         <div class="si-linha">${p.linha} · ${p.formato} · ${p.editoria||''}</div>
         <div class="si-tema">${p.tema}</div>
@@ -526,11 +438,10 @@ function renderSprint(){
   });
 }
 
-// ── LIST ──────────────────────────────────────────────────────────────────
 function renderList(){
-  const fp = filtered().sort((a,b)=>a.data.localeCompare(b.data));
-  document.getElementById('listBody').innerHTML = fp.length
-    ? fp.map(p=>`<tr onclick="openModal('${p.id}')">
+  const fp=filtered().sort((a,b)=>a.data.localeCompare(b.data));
+  document.getElementById('listBody').innerHTML=fp.length
+    ?fp.map(p=>`<tr onclick="openModal('${p.id}')">
         <td>${fmt(p.data)}</td>
         <td><span class="linha-badge">${p.linha}</span></td>
         <td>${p.formato}</td>
@@ -539,16 +450,15 @@ function renderList(){
         <td><span class="badge" style="${STATUS_STYLE[p.status]||''}">${p.status}</span></td>
         <td>${fmt(p.semBriefing)}</td>
       </tr>`).join('')
-    : '<tr><td colspan="6" style="text-align:center;padding:24px;color:#9ca3af">Nenhum lançamento cadastrado</td></tr>';
+    :'<tr><td colspan="7" style="text-align:center;padding:24px;color:#9ca3af">Nenhum lançamento cadastrado</td></tr>';
 }
 
 // ── MODAL ─────────────────────────────────────────────────────────────────
 function openModal(id=null, preDate=null){
-  if(!ghToken){ return; } // somente leitura — não abre modal
-  editId = id;
-  const btnDel = document.getElementById('btnDel');
+  editId=id;
+  const btnDel=document.getElementById('btnDel');
   if(id){
-    const p = posts.find(x=>x.id===id); if(!p) return;
+    const p=posts.find(x=>x.id===id); if(!p) return;
     document.getElementById('modalTitle').textContent='Editar Lançamento';
     document.getElementById('fLinha').value=p.linha;
     document.getElementById('fFormato').value=p.formato;
@@ -579,38 +489,35 @@ function closeModal(){
 }
 
 async function savePost(){
-  const tema = document.getElementById('fTema').value.trim();
-  const data = document.getElementById('fData').value;
-  if(!tema||!data){ alert('Preencha o tema e a data de publicação.'); return; }
-  const p = {
+  const tema=document.getElementById('fTema').value.trim();
+  const data=document.getElementById('fData').value;
+  if(!tema||!data){alert('Preencha o tema e a data de publicação.');return;}
+  const p={
     linha:document.getElementById('fLinha').value,
     formato:document.getElementById('fFormato').value,
     editoria:document.getElementById('fEditoria').value,
     tema, data,
     status:document.getElementById('fStatus').value,
-    semBriefing:document.getElementById('fSemBriefing').value,
+    semBriefing:document.getElementById('fSemBriefing').value||null,
   };
-  if(editId){ const i=posts.findIndex(x=>x.id===editId); posts[i]={...posts[i],...p}; }
-  else posts.push({id:uid(),...p});
-  closeModal(); render();
-  await save();
+  closeModal();
+  if(editId){ await updatePost(editId,p); }
+  else { await insertPost({id:uid(),...p}); }
+  render();
 }
 
 async function deletePost(){
   if(!confirm('Excluir este lançamento?')) return;
-  posts=posts.filter(p=>p.id!==editId);
-  closeModal(); render();
-  await save();
+  const id=editId;
+  closeModal();
+  await removePost(id);
+  render();
 }
 
 document.getElementById('overlay').addEventListener('click',function(e){
   if(e.target===this) closeModal();
 });
-document.getElementById('tokenOverlay').addEventListener('click',function(e){
-  if(e.target===this) closeTokenModal();
-});
-
-document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeModal(); closeTokenModal(); } });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
 
 loadData();
 </script>
