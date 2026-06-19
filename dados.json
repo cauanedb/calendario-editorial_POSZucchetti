@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "sample5",
-      "linha": "Clipp",
-      "formato": "Carrossel",
-      "editoria": "Educativo",
-      "tema": "Integração com marketplaces: passo a passo",
-      "data": "2026-07-22",
-      "status": "Em pauta",
-      "semBriefing": "2026-07-07"
-    },
-    {
       "id": "sample6",
       "linha": "Gdoor",
       "formato": "Reels",
