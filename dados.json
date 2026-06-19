@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "mql2s9ylld1m4rztpll",
-      "linha": "ZWeb",
-      "formato": "Carrossel",
-      "editoria": "GTM",
-      "tema": "TESTE CACAU",
-      "data": "2026-07-07",
-      "status": "Briefing",
-      "semBriefing": "2026-06-22"
-    },
-    {
       "id": "sample2",
       "linha": "Gdoor",
       "formato": "Carrossel",
