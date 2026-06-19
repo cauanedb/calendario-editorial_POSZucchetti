@@ -48,7 +48,11 @@ header{background:#1e1e2e;color:#fff;padding:12px 24px;display:flex;align-items:
 .day-cell.other-month .day-num{color:#d1d5db}
 .day-num{font-size:14px;font-weight:700;color:#374151;margin-bottom:3px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:50%}
 .day-cell.today .day-num{background:#1e1e2e;color:#fff}
-.post-chip{font-size:12px;padding:4px 7px;border-radius:3px;margin-bottom:3px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600;transition:opacity .1s;display:block}
+.post-chip{font-size:12px;padding:4px 7px 4px 10px;border-radius:3px;margin-bottom:3px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600;transition:opacity .1s;display:block;border-left:4px solid transparent}
+.line-clipp{border-left-color:#3b82f6}
+.line-gdoor{border-left-color:#f97316}
+.line-small{border-left-color:#8b5cf6}
+.line-zweb{border-left-color:#10b981}
 .post-chip:hover{opacity:.8}
 
 /* Status colors */
@@ -145,6 +149,13 @@ tr:last-child td{border-bottom:none}
   <div class="calendar-wrap">
     <div class="cal-title" id="calTitle"></div>
     <div class="cal-legend" id="calLegend"></div>
+    <div class="cal-legend" style="gap:16px;border-top:none">
+      <span style="font-size:12px;color:#6b7280;font-weight:600">Linha:</span>
+      <span style="font-size:12px;font-weight:700;color:#3b82f6;border-left:4px solid #3b82f6;padding-left:6px">Clipp</span>
+      <span style="font-size:12px;font-weight:700;color:#f97316;border-left:4px solid #f97316;padding-left:6px">Gdoor</span>
+      <span style="font-size:12px;font-weight:700;color:#8b5cf6;border-left:4px solid #8b5cf6;padding-left:6px">Small</span>
+      <span style="font-size:12px;font-weight:700;color:#10b981;border-left:4px solid #10b981;padding-left:6px">ZWeb</span>
+    </div>
     <div class="calendar-grid" id="calGrid"></div>
   </div>
 </div>
@@ -311,6 +322,9 @@ const STATUS_INITIAL = {
   'Briefing':'B','Gravar':'G','Concluido / Programado':'C',
   'A programar':'A','Em pauta':'E'
 };
+const LINE_CLS = {
+  'Clipp':'line-clipp','Gdoor':'line-gdoor','Small':'line-small','ZWeb':'line-zweb'
+};
 
 // ── CALENDAR ──────────────────────────────────────────────────────────────
 function renderCal(){
@@ -365,9 +379,9 @@ function renderCal(){
 
     fp.filter(p=>p.data===ds).forEach(p=>{
       const chip = document.createElement('div');
-      chip.className=`post-chip ${STATUS_CLS[p.status]||''}`;
+      chip.className=`post-chip ${STATUS_CLS[p.status]||''} ${LINE_CLS[p.linha]||''}`;
       const initial = STATUS_INITIAL[p.status]||'?';
-      chip.textContent=`${initial} | ${p.formato} | ${p.editoria||''} — ${p.tema}`;
+      chip.textContent=`${p.linha} · ${initial} | ${p.formato} | ${p.editoria||''} — ${p.tema}`;
       chip.title=`${p.linha} · ${p.tema}`;
       chip.onclick=(e)=>{e.stopPropagation();openModal(p.id);};
       cell.appendChild(chip);
