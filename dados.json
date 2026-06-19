@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "sample3",
-      "linha": "Small",
-      "formato": "Reels",
-      "editoria": "Solução na prática",
-      "tema": "O sistema que cresce com o negócio do cliente",
-      "data": "2026-07-21",
-      "status": "Briefing",
-      "semBriefing": "2026-06-30"
-    },
-    {
       "id": "sample5",
       "linha": "Clipp",
       "formato": "Carrossel",
