@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "sample2",
-      "linha": "Gdoor",
-      "formato": "Carrossel",
-      "editoria": "Pílula de venda",
-      "tema": "PDV: 3 erros que custam vendas ao revendedor",
-      "data": "2026-07-14",
-      "status": "Gravar",
-      "semBriefing": "2026-06-30"
-    },
-    {
       "id": "sample4",
       "linha": "ZWeb",
       "formato": "Estático",
