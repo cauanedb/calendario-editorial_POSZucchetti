@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "sample4",
-      "linha": "ZWeb",
-      "formato": "Estático",
-      "editoria": "GTM",
-      "tema": "Presença digital para o comércio local",
-      "data": "2026-07-15",
-      "status": "A programar",
-      "semBriefing": "2026-07-07"
-    },
-    {
       "id": "sample3",
       "linha": "Small",
       "formato": "Reels",
