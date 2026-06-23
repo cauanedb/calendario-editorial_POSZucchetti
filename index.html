@@ -44,7 +44,7 @@ header{background:#1e1e2e;color:#fff;padding:12px 24px;display:flex;align-items:
 .legend-cell{padding:4px 14px;font-size:12px;font-weight:600;text-align:center;border-radius:20px}
 .calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:1px;background:#e5e7eb;border:1px solid #e5e7eb;border-radius:0 0 10px 10px;overflow:hidden}
 .day-header{background:#1e1e2e;color:#fff;text-align:center;padding:8px;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
-.day-cell{background:#fff;min-height:110px;padding:6px;cursor:pointer;transition:background .1s;position:relative}
+.day-cell{background:#fff;min-height:110px;padding:6px;cursor:pointer;transition:background .1s;position:relative;min-width:0;overflow:hidden}
 .day-cell:hover{background:#f9fafb}
 .day-cell.other-month{background:#fafafa}
 .day-cell.other-month .day-num{color:#d1d5db}
@@ -56,6 +56,8 @@ header{background:#1e1e2e;color:#fff;padding:12px 24px;display:flex;align-items:
 .line-small{border-left-color:#8b5cf6}
 .line-zweb{border-left-color:#10b981}
 .post-chip:hover{opacity:.8}
+.chip-urgente{outline:2px solid #dc2626;outline-offset:-2px}
+.chip-urgente::after{content:' ⚠';color:#dc2626;font-weight:900}
 
 /* Status colors */
 .s-briefing{background:#fef3c7;color:#92400e}
@@ -227,7 +229,7 @@ tr:last-child td{border-bottom:none}
         <input class="fi" type="text" id="fTema" placeholder="Descreva o tema ou título do conteúdo"></div>
       <div class="frow">
         <div class="fg"><label class="fl">Data de Publicação</label>
-          <input class="fi" type="date" id="fData"></div>
+          <input class="fi" type="date" id="fData" onchange="autoFillBriefing()"></div>
         <div class="fg"><label class="fl">Status</label>
           <select class="fs" id="fStatus">
             <option>A programar</option><option>Briefing</option><option>Gravar</option><option>Em pauta</option><option>Concluido / Programado</option>
@@ -512,7 +514,7 @@ function renderCal(){
     num.className='day-num'; num.textContent=date.getDate(); cell.appendChild(num);
     fp.filter(p=>p.data===ds).forEach(p=>{
       const chip=document.createElement('div');
-      chip.className=`post-chip ${STATUS_CLS[p.status]||''} ${LINE_CLS[p.linha]||''}`;
+      chip.className=`post-chip ${STATUS_CLS[p.status]||''} ${LINE_CLS[p.linha]||''}${isUrgente(p)?' chip-urgente':''}`;
       const initial=STATUS_INITIAL[p.status]||'?';
       chip.innerHTML=`<strong>${p.linha}</strong> · ${initial} | ${p.formato} | ${p.editoria||''} — ${p.tema}`;
       chip.title=`${p.linha} · ${p.tema}`;
@@ -553,7 +555,7 @@ function renderList(){
         <td>${p.formato}</td>
         <td>${p.editoria||'—'}</td>
         <td>${p.tema}</td>
-        <td><span class="badge" style="${STATUS_STYLE[p.status]||''}">${p.status}</span></td>
+        <td><span class="badge" style="${STATUS_STYLE[p.status]||''}">${p.status}</span>${isUrgente(p)?' <span style="color:#dc2626;font-weight:700" title="Briefing urgente — menos de 2 semanas para publicação">⚠</span>':''}</td>
         <td>${fmt(p.semBriefing)}</td>
       </tr>`).join('')
     :'<tr><td colspan="7" style="text-align:center;padding:24px;color:#9ca3af">Nenhum lançamento cadastrado</td></tr>';
@@ -592,6 +594,24 @@ function openModal(id=null, preDate=null){
 function closeModal(){
   document.getElementById('overlay').classList.remove('open');
   editId=null;
+}
+
+function autoFillBriefing(){
+  const dataVal = document.getElementById('fData').value;
+  const semBriefingField = document.getElementById('fSemBriefing');
+  if(dataVal && !semBriefingField.value){
+    const d = new Date(dataVal);
+    d.setDate(d.getDate() - 21);
+    semBriefingField.value = d.toISOString().slice(0,10);
+  }
+}
+
+function isUrgente(p){
+  if(p.status === 'Concluido / Programado') return false;
+  const hoje = new Date(); hoje.setHours(0,0,0,0);
+  const pub = new Date(p.data + 'T00:00:00');
+  const diasAtePublicacao = Math.ceil((pub - hoje) / 86400000);
+  return diasAtePublicacao <= 14;
 }
 
 async function savePost(){
