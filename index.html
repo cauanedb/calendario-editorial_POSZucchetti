@@ -606,8 +606,9 @@ async function savePost(){
     status:document.getElementById('fStatus').value,
     semBriefing:document.getElementById('fSemBriefing').value||null,
   };
+  const currentEditId = editId;
   closeModal();
-  if(editId){ await updatePost(editId,p); }
+  if(currentEditId){ await updatePost(currentEditId,p); }
   else { await insertPost({id:uid(),...p}); }
   render();
 }
