@@ -1,14 +1,1944 @@
 {
   "posts": [
     {
-      "id": "mql784ehnwvh41df04",
+      "id": "6fa5104ac8680c3b",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Como perder o medo de vender software?",
+      "data": "2026-01-06",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "466ec00db34e327f",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Tributos da Reforma Tributária",
+      "data": "2026-01-08",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "66a87255c4f7d529",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Atualização do sistema: por que manter o Small sempre na última versão",
+      "data": "2026-01-08",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "83a626a1437b97be",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Clipp Pedidos — integração total na palma da mão",
+      "data": "2026-01-09",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "187f6c63ac694cba",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Como organizar o pós-venda com o cliente",
+      "data": "2026-01-12",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "62470ae40525f1fe",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "IA já está redefinindo resultado em vendas",
+      "data": "2026-01-14",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d48a0c9328ab0f76",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Quando atualizar o sistema?",
+      "data": "2026-01-14",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "ca9a09fa19410d82",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Emissão de NFC-e: simplificação e menos erros de tributação",
+      "data": "2026-01-14",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "e3ff9d40c55e5dd7",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Integrações bancárias: PIX e boletos automáticos",
+      "data": "2026-01-15",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "4361a89a1d053fdd",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Financeiro em Arugumento de venda",
+      "data": "2026-01-15",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "182c0627b36ad975",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Controle financeiro que evita juros e retrabalho",
+      "data": "2026-01-19",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "6d695cb2bec114f6",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Backup automático: o seguro que seu cliente nem sabia que precisava",
+      "data": "2026-01-20",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "3d59870ae5a82a47",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Comunicação integrada com o cliente via WhatsApp",
+      "data": "2026-01-22",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "a8de752cc25b7131",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Como usar a automação do Small como diferencial comercial",
+      "data": "2026-01-22",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "280e42dca29e4bf2",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "A dor por trás do “Minha empresa é pequena demais”",
+      "data": "2026-01-26",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "53a32396ff850615",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Como usar as integrações bancárias como argumento de venda",
+      "data": "2026-01-28",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d2262f739c5360fc",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Aniversário não é só parabéns: como usar datas pessoais para gerar fluxo em dias fracos",
+      "data": "2026-01-28",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "058af3f2878dfb3e",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Classificação tributária na prática",
+      "data": "2026-01-30",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "2ff1eddc93d4333d",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Gfood Móvel Smart POS",
+      "data": "2026-02-03",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "89545a85bd50cc7f",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Gfood Móvel Smart POS",
+      "data": "2026-02-04",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "71ee71e9410fb852",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Controle por número de série como diferencial na gestão",
+      "data": "2026-02-04",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "172f7ee4ee466f3c",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Gestão que cresce junto: o que muda quando o Clipp faz parte do ecossistema Zucchetti",
+      "data": "2026-02-05",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "efdd600d073fa9bb",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Gfood Móvel Smart POS",
+      "data": "2026-02-05",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "4948f19c7e5eae43",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "integrações do Clipp: como transformar recurso em argumento de venda",
+      "data": "2026-02-09",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "e2d6d2af5b55e53b",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Gfood Móvel Smart POS",
+      "data": "2026-02-10",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "3934a43311c78831",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Curva ABC",
+      "data": "2026-02-11",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "e8792006e78697c6",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Controle de estoque em períodos sazonais (Carnaval)",
+      "data": "2026-02-11",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "9f752b8982920789",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Gfood Móvel Smart POS",
+      "data": "2026-02-12",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "449e1e8f3c0b5aac",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Venda Gerencial x Venda Fiscal",
+      "data": "2026-02-16",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "2e9a6087679d87e2",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Importação automática de XML de compras",
+      "data": "2026-02-16",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "da793da941374b98",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Small: sistema de entrada não significa sistema limitado",
+      "data": "2026-02-18",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "4e302658e05b3537",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Comunicado Emissão fiscal vinculada a pagamentos eletrônicos - Goiás",
+      "data": "2026-02-24",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "f2c22fd56d6b660a",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Emissão fiscal vinculada a pagamentos eletrônicos - Goiás",
+      "data": "2026-02-24",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "a82c0afb538d7042",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Comunicado Emissão fiscal vinculada a pagamentos eletrônicos - Goiás",
+      "data": "2026-02-24",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "841ef29f024d022e",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Como transformar o “Não tenho tempo” em oportunidade",
+      "data": "2026-02-26",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "4703d70c5160dbe0",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Composição de produtos como apoio ao controle de estoque",
+      "data": "2026-03-02",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "2486c1bb1bbb4287",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Por que o ZWeb foi escolhido para receber R$ 35 milhões do BNDES?",
+      "data": "2026-03-02",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "e1c9f5d074b7550c",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Waldy - HardTech",
+      "data": "2026-03-03",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "6db5dd309665d341",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Como falar de preço sem perder autoridade",
+      "data": "2026-03-04",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "94dfce74f9423df1",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Um erro simples que deixa seu vídeo ruim (e como resolver)",
+      "data": "2026-03-04",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "7b2acfb2cb968845",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Crescer não é trocar de sistema. É ativar o que faz sentido.",
+      "data": "2026-03-04",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "7222e36edf95ef60",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Um erro simples que deixa seu vídeo ruim (e como resolver)",
+      "data": "2026-03-05",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "eef52ca1456aa8d3",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Concórdia Distribuidora",
+      "data": "2026-03-06",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "42d17ec22f58cabf",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Concórdia Distribuidora",
+      "data": "2026-03-06",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "31d7db249ce77409",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Concórdia Distribuidora",
+      "data": "2026-03-06",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "7af827078368c2c2",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Afinal, o que é classificação tributária IBS/CBS?",
+      "data": "2026-03-09",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "527eaeb0c11fe323",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Afinal, o que é classificação tributária IBS/CBS?",
+      "data": "2026-03-09",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "986b49bfc20c0f67",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Afinal, o que é classificação tributária IBS/CBS?",
+      "data": "2026-03-09",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "c1811a7f593cda78",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Revender Software é promissor",
+      "data": "2026-03-10",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "af2f61318ec8d2b5",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Quando gestão e fiscal conversam, o varejo ganha tempo",
+      "data": "2026-03-10",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "62f27948a60a91f9",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Relatórios que quase ninguém usa",
+      "data": "2026-03-11",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "9fa9965f377d51ac",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Análise inteligente com IA",
+      "data": "2026-03-12",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "515c7134ad2477ef",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Afinal, o que é classificação tributária IBS/CBS?",
+      "data": "2026-03-13",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "344676b27a8c4007",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Digitalização não basta. Integração gera resultado",
+      "data": "2026-03-16",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "02b9e5368ece56d2",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Como o Small Commerce organiza a gestão do pequeno varejo na prática.",
+      "data": "2026-03-16",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "6165b9a48526f829",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Soluções Cloud transformam negócios",
+      "data": "2026-03-16",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "09c1d7b36fc21417",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Emissão e cancelamento de boletos via API",
+      "data": "2026-03-17",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "f604dab028b42a63",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Emissão de carnê com Qr code pix e pagamento",
+      "data": "2026-03-17",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "5df208aee24f13ad",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Concorrente mais barato...",
+      "data": "2026-03-18",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d4975d172fa86331",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Grade de Produtos",
+      "data": "2026-03-18",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "b50e82b2cd2bda6e",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Ferramentas gratuitas que resolvem 80% do marketing",
+      "data": "2026-03-23",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "cd6692cd8fc0e4f0",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Classificação tributária regular, suspensa e diferida",
+      "data": "2026-03-23",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "44bd627dd64901eb",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Classificação tributária regular, suspensa e diferida",
+      "data": "2026-03-23",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "e243fff5893a473a",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Classificação tributária regular, suspensa e diferida",
+      "data": "2026-03-24",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "9a88484e9b45cece",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Integração com NFSe via API",
+      "data": "2026-03-24",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "58d5a96156092989",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Benefícios da parceria - Segurança e Tecnologia",
+      "data": "2026-03-25",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "84cacc52c095f864",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Ferramentas gratuitas que resolvem 80% do marketing",
+      "data": "2026-03-25",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "0b97b0ca89c2d83d",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "PDV, IA e NRF",
+      "data": "2026-03-26",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d1b5620871ec6710",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "ZWeb cresce com o negócio",
+      "data": "2026-03-26",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "2b1b6b00db47acce",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Classificação tributária regular, suspensa e diferida",
+      "data": "2026-03-27",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "347d1e42b555cad8",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Dimapel Informatica",
+      "data": "2026-03-27",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "f29f16bdfccb9d63",
       "linha": "Clipp",
       "formato": "Reels",
       "editoria": "Pílula de venda",
-      "tema": "Tema teste",
-      "data": "2026-07-08",
-      "status": "Briefing",
+      "tema": "Como perder o medo de vender software",
+      "data": "2026-04-06",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "633568b74fcd4077",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Controle de caixa no Gweb",
+      "data": "2026-04-06",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "09507e8b6987afb2",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Como falar de preço sem perder autoridade",
+      "data": "2026-04-07",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "3b406b7890842308",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Transforme sua operação com o ZWeb",
+      "data": "2026-04-07",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "1e46331baf30dbc8",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Belaitech Automação Empresarial",
+      "data": "2026-04-08",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "ad9b633abb16da2a",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Ordem de serviço",
+      "data": "2026-04-08",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "9dad33f94e3c7a3e",
+      "linha": "Small",
+      "formato": "Estático",
+      "editoria": "Educativo",
+      "tema": "Pix dinâmico e estático. Qual a diferença?",
+      "data": "2026-04-09",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "a2bc59854aa25079",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Francisco Valclécio Monção Sousa - Gecom",
+      "data": "2026-04-10",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "b821d2e59c979eda",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "ClippService",
+      "data": "2026-04-14",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "f37994ea837fd7ee",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Oportunidade de negócio a partir de falhas de gestão",
+      "data": "2026-04-15",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "217adc428ac14b42",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "CNPJ Alfanumérico e legislação",
+      "data": "2026-04-16",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "45521e739842ada8",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Módulo compras",
+      "data": "2026-04-17",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "a677b5af518c91b5",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Alex Sandro Roncelli",
+      "data": "2026-04-17",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "5cd1ccbffebcc2fb",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Controle de produtos por número de série",
+      "data": "2026-04-20",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "108d13ef6acaa445",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Arenilton Lima e Silva Assunção",
+      "data": "2026-04-22",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "8ce9cd7ed1095150",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Controles financeiros",
+      "data": "2026-04-22",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "31f76237360b80e9",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Como vender software para quem nunca usou um sistema",
+      "data": "2026-04-22",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "66c523e81d24e726",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Importação de XML no ZWeb",
+      "data": "2026-04-22",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "6705ba3811223bb6",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "O que é a NBS",
+      "data": "2026-04-23",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "aad74691a173ba2c",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "O que é a NBS",
+      "data": "2026-04-24",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d308853c0fc6d737",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Metas para vendedores",
+      "data": "2026-04-24",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "f3afb9ea06d4b626",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Precificação de produtos",
+      "data": "2026-04-24",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "4d8c2f3aa6fdba9b",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "O que é a NBS",
+      "data": "2026-04-24",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "15505074824ac025",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "O que é a NBS",
+      "data": "2026-04-29",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "b7db15693a3ec4a1",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "NFC-e no ZWeb",
+      "data": "2026-04-29",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "4b3f9ffd458d6eae",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "PDV: o ponto onde a venda acontece",
+      "data": "2026-05-04",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "ef44345c60b9fb62",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "39% das MPMEs ainda controlam despesas de forma manual",
+      "data": "2026-05-04",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "5f9b575d89d8fd5e",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Datas comerciais movimentam até 40% do faturamento anual do pequeno varejo.",
+      "data": "2026-05-04",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "35344ecb4469053d",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Gestão financeira no varejo - por que 61% dos pequenos varejistas ainda operam no escuro",
+      "data": "2026-05-04",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "7bda7a3443ea5532",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Controle Financeiro",
+      "data": "2026-05-06",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "7b0b8962ffa4e95f",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "PDV Híbrido",
+      "data": "2026-05-07",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d1bc574456c1bb26",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Texto-base do IBS",
+      "data": "2026-05-08",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "aef7efcab540c4e4",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Texto-base do IBS",
+      "data": "2026-05-08",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "628860672888a0f1",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "Texto-base do IBS",
+      "data": "2026-05-08",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "df27799716320a37",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Emissão da NFS-e",
+      "data": "2026-05-11",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "8725f500d7941f3b",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Controle de loteno varejo: o que é, para quem é e como funciona no Clipp",
+      "data": "2026-05-12",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d08b59d1fd127228",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Guia para revendas",
+      "data": "2026-05-12",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "7fd085a19f2a9ecc",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Gestão financeira no varejo: como o ZWeb transforma o controle financeiro do varejista.",
+      "data": "2026-05-12",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d92fe15390eed294",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "ZPOS: o app que conecta a maquininha ao ZWeb e transforma o fluxo de pagamentos no PDV.",
+      "data": "2026-05-13",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "a65bdc415f837350",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Gnews Reel âncora: Seu cliente ainda usa duas impressoras no caixa? Stories reforço: Uma impressora. O fluxo completo.",
+      "data": "2026-05-19",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "9ca7753111d2f958",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Félix dos Santos - Sol Sistemas",
+      "data": "2026-05-19",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "185538cec039fb7e",
+      "linha": "ZWeb",
+      "formato": "Carrossel",
+      "editoria": "Radar comercial",
+      "tema": "O risco de depender de um único canal de vendas",
+      "data": "2026-05-19",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "0418e16f56c94764",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "consolidação: Uma impressora. O fluxo completo",
+      "data": "2026-05-20",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "7c9f93551bb6b53e",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Tipos de promoção no Small Commerce",
+      "data": "2026-05-20",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "b757dce0bc96c929",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "ClippPedidos: Como acabar com pedidos manuais no varejo?",
+      "data": "2026-05-21",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "0bbfa8d3858941f1",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Wesley Lima da Silva - Zamarian Software",
+      "data": "2026-05-22",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "19020acf9ceeadcd",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Integração com e-commerce e marketplaces: como o ZWeb sincroniza a operação em múltiplos canais ao mesmo tempo",
+      "data": "2026-05-22",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d695bbd902cf7889",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Guia para revendas",
+      "data": "2026-05-26",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "c07cec2d8041b502",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "O que a impressora no balcão do varejista te diz sobre a venda que você pode fazer",
+      "data": "2026-05-26",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "e63babc3ca5404f5",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Envio automático dos XML como argumento de venda",
+      "data": "2026-05-26",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "438a8c9b540af391",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Gestão remota no pequeno varejo",
+      "data": "2026-05-27",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "fefbc83b72ad7cd1",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Como identificar qual cliente precisa do ClippPedidos?",
+      "data": "2026-05-28",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "71fa8ad89480647c",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Gped: força de vendas na palma da mão.",
+      "data": "2026-05-28",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "37f6732c66f4c96e",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Como apresentar o envio automático de XML. O roteiro da conversa que fideliza",
+      "data": "2026-05-28",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "de452f8e38635abe",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Vestuário, calçados e joias respondem por 40% das vendas do Dia dos Namorados.",
+      "data": "2026-06-01",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "dc307d4e081d9ce0",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Radar comercial",
+      "tema": "A Copa como oportunidade de consumo no varejo",
+      "data": "2026-06-01",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "62a7be8aff77025d",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Controle de estoque + Dia dos Namorados",
+      "data": "2026-06-02",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "864e1588b778f73f",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Como abrir a conversa sobre controle de grade com o varejista que não sabe que precisa",
+      "data": "2026-06-05",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "15fba7a66b3f3cc1",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Dia dos Namorados: como o revendedor aborda lojistas de roupa, calçado e joia com o Gpro.",
+      "data": "2026-06-05",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "ad6094b84ecf540e",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Promoção por período: Dia dos Namorados faltam 7 dias para o dia 12.",
+      "data": "2026-06-05",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "5ceacc5486d3cd0a",
+      "linha": "ZWeb",
+      "formato": "Estático",
+      "editoria": "Solução na prática",
+      "tema": "Emissão de NFC-e no ZWeb na prática",
+      "data": "2026-06-05",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "684fe059e1742edf",
+      "linha": "ZWeb",
+      "formato": "Estático",
+      "editoria": "Educativo",
+      "tema": "Por que a NFC-e é mais do que obrigação fiscal",
+      "data": "2026-06-08",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "73b0189411202f87",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Bares e restaurantes esperam 20% de aumento no faturamento durante a Copa 2026.",
+      "data": "2026-06-09",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d8354bbbf074dd2d",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Solução na prática",
+      "tema": "Como configurar quantidade mínima pra não perder venda em junho",
+      "data": "2026-06-10",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "c265e770a31cf7ba",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Virada de semestre: varejista sem histórico de vendas entra no segundo semestre no escuro",
+      "data": "2026-06-11",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "c61e59c3f4fbf495",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Gfood na prática: como o sistema prepara bar e restaurante para o pico dos jogos de junho",
+      "data": "2026-06-11",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "98617a4fa8a3c99d",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Documentos no ZWeb",
+      "data": "2026-06-11",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "7a15982093e731b3",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "03 sinais que mostram qual tipo de varejista precisa das soluções Zucchetti.",
+      "data": "2026-06-12",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "2beac6113cdf93a6",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Como o controle de estoque do Small prepara o varejista para aproveitar o pico de consumo de junho",
+      "data": "2026-06-12",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "c09344ae98bd3e3e",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Gfood Móvel na SmartPOS: pedido e pagamento no mesmo dispositivo",
+      "data": "2026-06-16",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d689bffac5449756",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Festas juninas",
+      "data": "2026-06-16",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "ed6ffb76c68ecbf9",
+      "linha": "ZWeb",
+      "formato": "Estático",
+      "editoria": "Educativo",
+      "tema": "MDF-e: o que é e por que importa",
+      "data": "2026-06-16",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "4db8173fab0ed335",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Lançamento: anunciar funcionalidade",
+      "data": "2026-06-17",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "87cdd452910cfc42",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "MDF-e no ZWeb: como funciona",
+      "data": "2026-06-18",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "31edd659276f262f",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "GTM",
+      "tema": "Lançamento: consolidação funcionalidade",
+      "data": "2026-06-18",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "2a204b3bd8e842b6",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Festas juninas",
+      "data": "2026-06-18",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "8a987d25020ecc73",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Como o caixa do dia transforma gestão no achismo em gestão com dado.",
+      "data": "2026-06-18",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "d1b803d80e41b050",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Festas juninas",
+      "data": "2026-06-22",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "5995c1baf342a5f0",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Solução na prática",
+      "tema": "Como funciona o caixa dia no Small Commerce",
+      "data": "2026-06-22",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "1e8f522e44f3d900",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "03 sinais que mostram qual tipo de varejista precisa das soluções Zucchetti.",
+      "data": "2026-06-23",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "919a0ff3f35b7ff7",
+      "linha": "ZWeb",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Fiscal e logística integrados",
+      "data": "2026-06-25",
+      "status": "Concluido / Programado",
+      "semBriefing": "2026-06-03"
+    },
+    {
+      "id": "64b524e18e8ed73f",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "CFOP e NCM: o que são e por que importam para o varejista.",
+      "data": "2026-06-26",
+      "status": "Concluido / Programado",
+      "semBriefing": "2026-06-05"
+    },
+    {
+      "id": "50201b71d767963a",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "03 sinais que mostram qual tipo de varejista precisa das soluções Zucchetti.",
+      "data": "2026-06-26",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "ed3fe095d6d5395f",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Solução na prática",
+      "tema": "Período junino + controle de lote e validade",
+      "data": "2026-06-26",
+      "status": "Concluido / Programado",
+      "semBriefing": "2026-06-05"
+    },
+    {
+      "id": "024a1db4cc016f0d",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Gview: como gerar mais valor para clientes que já usam Gpro e Gmicro.",
+      "data": "2026-06-26",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "bddb75a04154f224",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "NF-e no PDV",
+      "data": "2026-06-30",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "590144c1836b5d31",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Solução na prática",
+      "tema": "Como o relatório de vendas do Small resolve um problema concreto do varejista",
+      "data": "2026-06-30",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "3d55c7df0f71ba4e",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Como o ZWeb estrutura a base fiscal da operação",
+      "data": "2026-06-30",
+      "status": "Concluido / Programado",
+      "semBriefing": null
+    },
+    {
+      "id": "b485a06f6fd32ab3",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Solução na prática",
+      "tema": "Composição de produtos",
+      "data": "2026-07-01",
+      "status": "Concluido / Programado",
       "semBriefing": "2026-06-22"
+    },
+    {
+      "id": "b9c2aad2befc5dec",
+      "linha": "ZWeb",
+      "formato": "Carrossel",
+      "editoria": "Solução na prática",
+      "tema": "Férias escolares e picos de venda",
+      "data": "2026-07-03",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-30"
+    },
+    {
+      "id": "2073f3c527fc8a3c",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Resumo de vendas: faturou x lucrou",
+      "data": "2026-07-03",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-17"
+    },
+    {
+      "id": "mqqnx90d5djvwjfl426",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "CIOT (Gweb)",
+      "data": "2026-07-03",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-23"
+    },
+    {
+      "id": "bc6f1673151494ff",
+      "linha": "ZWeb",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Revisão de processos na virada do semestre",
+      "data": "2026-07-07",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-18"
+    },
+    {
+      "id": "mqqo3qoth7rvwos6pmw",
+      "linha": "Gdoor",
+      "formato": "Carrossel",
+      "editoria": "Pílula de venda",
+      "tema": "Meta de vendedores no Gpro",
+      "data": "2026-07-07",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-22"
+    },
+    {
+      "id": "mqpkrjtvuz9ved1vhk9",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "ClippNFC-e",
+      "data": "2026-07-07",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-22"
+    },
+    {
+      "id": "d26e6e621da0b867",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Solução na prática",
+      "tema": "Data da última venda: produtos parados no estoque",
+      "data": "2026-07-07",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-23"
+    },
+    {
+      "id": "bc55fd44d0479b1c",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Meio do ano: no caminho certo? (Plano de Contas e DRE)",
+      "data": "2026-07-09",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-25"
+    },
+    {
+      "id": "04ae5b33441aa80f",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Lançamento rápido de DAVs (pedido e orçamento)",
+      "data": "2026-07-10",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-19"
+    },
+    {
+      "id": "53c338674afe6997",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Mensagem de WhatsApp para clientes do varejista",
+      "data": "2026-07-10",
+      "status": "Briefing",
+      "semBriefing": "2026-06-26"
+    },
+    {
+      "id": "mqs1reodku9nl66fafg",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Arquivos fiscais",
+      "data": "2026-07-10",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-19"
+    },
+    {
+      "id": "583b9fb30de5f7c4",
+      "linha": "Gdoor",
+      "formato": "Carrossel",
+      "editoria": "Pílula de venda",
+      "tema": "Precificação no módulo de Compras (Gpro)",
+      "data": "2026-07-13",
+      "status": "Em pauta",
+      "semBriefing": "2026-06-29"
+    },
+    {
+      "id": "3316845e0057f60e",
+      "linha": "ZWeb",
+      "formato": "Carrossel",
+      "editoria": "Solução na prática",
+      "tema": "Reduzir erros fiscais no 2º semestre (Perfil de Tributação)",
+      "data": "2026-07-14",
+      "status": "Briefing",
+      "semBriefing": "2026-07-07"
+    },
+    {
+      "id": "ef259265ed6d677c",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Solução na prática",
+      "tema": "Dashboard com diagnóstico por IA",
+      "data": "2026-07-14",
+      "status": "Briefing",
+      "semBriefing": "2026-06-30"
+    },
+    {
+      "id": "0645b7884cfda71a",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Controle de cashback",
+      "data": "2026-07-14",
+      "status": "Gravar",
+      "semBriefing": "2026-06-29"
+    },
+    {
+      "id": "67d475c55d6ad0a7",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "iMendes: tranquilidade fiscal na Reforma",
+      "data": "2026-07-16",
+      "status": "Em pauta",
+      "semBriefing": "2026-07-02"
+    },
+    {
+      "id": "d283b5ea160d5671",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "iMendes: tranquilidade fiscal na Reforma",
+      "data": "2026-07-16",
+      "status": "Em pauta",
+      "semBriefing": "2026-07-02"
+    },
+    {
+      "id": "71099b2271507c91",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "iMendes: tranquilidade fiscal na Reforma",
+      "data": "2026-07-16",
+      "status": "Em pauta",
+      "semBriefing": "2026-07-02"
+    },
+    {
+      "id": "d451d0b6a16a5d6c",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Educativo",
+      "tema": "iMendes: tranquilidade fiscal na Reforma",
+      "data": "2026-07-17",
+      "status": "Em pauta",
+      "semBriefing": "2026-07-02"
+    },
+    {
+      "id": "d5e359db7f453904",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Solução na prática",
+      "tema": "Controle de inadimplência",
+      "data": "2026-07-20",
+      "status": "Briefing",
+      "semBriefing": "2026-07-06"
+    },
+    {
+      "id": "6316d986986d9950",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Pílula de venda",
+      "tema": "Controle de convênios",
+      "data": "2026-07-20",
+      "status": "Gravar",
+      "semBriefing": "2026-07-06"
+    },
+    {
+      "id": "mqqo1lrlgaf2yxq0nve",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Solução na prática",
+      "tema": "Gcontábil",
+      "data": "2026-07-21",
+      "status": "Gravar",
+      "semBriefing": "2026-07-06"
+    },
+    {
+      "id": "fff875d7b5a77526",
+      "linha": "ZWeb",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Empresas que crescem têm processos integrados",
+      "data": "2026-07-21",
+      "status": "Briefing",
+      "semBriefing": "2026-07-09"
+    },
+    {
+      "id": "554b141670118fbd",
+      "linha": "Gdoor",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Backup na Nuvem (Gpro)",
+      "data": "2026-07-23",
+      "status": "Briefing",
+      "semBriefing": "2026-07-06"
+    },
+    {
+      "id": "c1df09c6cf3995fe",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Pílula de venda",
+      "tema": "CT-e: Conhecimento de Transporte eletrônico",
+      "data": "2026-07-23",
+      "status": "Em pauta",
+      "semBriefing": "2026-07-09"
+    },
+    {
+      "id": "f89c1b1b3834706c",
+      "linha": "ZWeb",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Planejamento para o Dia dos Pais",
+      "data": "2026-07-24",
+      "status": "Briefing",
+      "semBriefing": "2026-07-14"
+    },
+    {
+      "id": "8672c30247b57075",
+      "linha": "Small",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "Backup em nuvem",
+      "data": "2026-07-24",
+      "status": "Briefing",
+      "semBriefing": "2026-07-14"
+    },
+    {
+      "id": "68ce3dcc3d38fd17",
+      "linha": "Clipp",
+      "formato": "Carrossel",
+      "editoria": "Educativo",
+      "tema": "MDF-e: Manifesto Eletrônico de Documentos Fiscais",
+      "data": "2026-07-28",
+      "status": "Em pauta",
+      "semBriefing": "2026-07-13"
+    },
+    {
+      "id": "0f72f33ce50b2a3c",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Parcerias que transformam",
+      "tema": "Depoimento de parceiro (a definir)",
+      "data": "2026-07-31",
+      "status": "Briefing",
+      "semBriefing": "2026-07-13"
+    },
+    {
+      "id": "mqs1m6zd0uopwz7pjrg",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "GTM",
+      "tema": "Confere estoque",
+      "data": "2026-08-10",
+      "status": "Briefing",
+      "semBriefing": "2026-07-20"
+    },
+    {
+      "id": "mqqy3vsrvn3fzflx4cs",
+      "linha": "Small",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Obrigatoriedade de Integração de Pagamentos (Ceará)",
+      "data": "2026-11-01",
+      "status": "Briefing",
+      "semBriefing": "2026-10-19"
+    },
+    {
+      "id": "mqqouchd7haivhen1hg",
+      "linha": "Gdoor",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Obrigatoriedade de Integração de Pagamentos (Ceará)",
+      "data": "2026-11-01",
+      "status": "Briefing",
+      "semBriefing": "2026-10-19"
+    },
+    {
+      "id": "mqqy58o1ccdqmxfarlp",
+      "linha": "ZWeb",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Obrigatoriedade de Integração de Pagamentos (Ceará)",
+      "data": "2026-11-01",
+      "status": "Briefing",
+      "semBriefing": "2026-10-19"
+    },
+    {
+      "id": "mqqy4bituy3kwtxhkei",
+      "linha": "Clipp",
+      "formato": "Reels",
+      "editoria": "Radar comercial",
+      "tema": "Obrigatoriedade de Integração de Pagamentos (Ceará)",
+      "data": "2026-11-01",
+      "status": "Briefing",
+      "semBriefing": "2026-10-12"
     }
   ]
 }
